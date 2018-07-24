@@ -14,27 +14,17 @@ processes = [
     },
     {
         chdir: './3d_led_cube2',
-        spawn: "python main_hw_controller_module.py",
+        spawn: "python main_paint_service.py -d 192.168.0.20:5301",
         enable:true
     },
     {
         chdir: './3d_led_cube2',
-        spawn: "python main_realsense_service.py",
+        spawn: "python main_realsense_service.py -d 192.168.0.20:5401",
         enable:true
     },
     {
         chdir: './3d_led_cube2',
-        spawn: "python main_paint_service.py",
-        enable:true
-    },
-    {
-        chdir: './3d_led_cube2',
-        spawn: "python main_realsense_service.py",
-        enable:true
-    },
-    {
-        chdir: './3d_led_cube2',
-        spawn: "python main_block_service.py",
+        spawn: "python main_block_service.py -d 192.168.0.20:5101",
         enable:true
     },
     {
@@ -43,8 +33,8 @@ processes = [
         enable:false
     },
     {
-        chdir: './select_contents',
-        spawn: "bundle exec rackup -P rack.pid",
+        chdir: './3d_led_cube1/content/c++/taro-mori_demo/msvc/Release',
+        spawn: "demo.exe -u 192.168.0.20 -p 5201",
         enable:true
     },
 ]
