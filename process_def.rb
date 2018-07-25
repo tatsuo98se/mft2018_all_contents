@@ -13,6 +13,11 @@ $paint_service = {
     spawn: "python main_paint_service.py -d 192.168.0.20:5301",
 }
 
+$paint_service_rmt = {
+    chdir: './3d_led_cube2',
+    spawn: "python main_paint_service.py -d 192.168.0.20:5301 -r 192.168.0.25 -c 192.168.0.25",
+}
+
 $paint_service_offline = {
     chdir: './3d_led_cube2',
     spawn: "python main_paint_service.py",
@@ -23,9 +28,25 @@ $rs_module = {
     spawn: "python main_realsense_module.py",
 }
 
+
+$audio_module = {
+    chdir: './3d_led_cube2',
+    spawn: "python main_audio_module.py",
+}
+
+$rs_service_rmt = {
+    chdir: './3d_led_cube2',
+    spawn: "python main_realsense_service.py -d 192.168.0.20:5401 -r 192.168.0.25 -c 192.168.0.25",
+}
+
 $rs_service = {
     chdir: './3d_led_cube2',
     spawn: "python main_realsense_service.py -d 192.168.0.20:5401",
+}
+
+$block_service_rmt = {
+    chdir: './3d_led_cube2',
+    spawn: "python main_block_service.py -d 192.168.0.20:5101 -r 192.168.0.25 -c 192.168.0.25",
 }
 
 $block_service = {
