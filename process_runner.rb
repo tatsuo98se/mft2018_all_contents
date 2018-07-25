@@ -1,6 +1,16 @@
 require "timeout"
+require "os"
 
-def run_processes(processes)
+
+def run_processes_win(processes)
+    processes.each do |process|
+        Dir.chdir process[:chdir] do
+            system('start cmd /k ' + process[:spawn])
+        end
+    end
+end
+
+def run_processes_other(processes)
     pids = processes.map do |process|
         spawn(process[:spawn], chdir:process[:chdir])
     end
@@ -28,5 +38,13 @@ def run_processes(processes)
                 Process.kill(:KILL, pid)
             end
         end
+    end
+end
+
+def run_processes(processes)
+    if OS.windows? then
+        run_processes_win(processes)
+    else
+        run_processes_other(processes)
     end
 end
