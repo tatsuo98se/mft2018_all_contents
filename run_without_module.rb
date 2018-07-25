@@ -4,7 +4,6 @@ require './process_runner'
 processes = [
     $hw_ctrl_module,
     $paint_service_rmt,
-    $rs_module,
     $rs_service_rmt,
     $block_service_rmt,
     $demo,
