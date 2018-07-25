@@ -6,4 +6,4 @@
 	url = https://github.com/hiroshi-mikuriya/3d_led_cube.git
 [submodule "select_contents"]
 	path = select_contents
-	url = https://github.com/chabukan/select_contents.git
+	url = https://github.com/tatsuo98se/select_contents.git
