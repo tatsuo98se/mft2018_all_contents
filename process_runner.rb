@@ -33,7 +33,7 @@ def run_processes_other(processes)
                     Process.wait pid
                     puts "[INFO] PID:#{pid} has aborted successfully."
                 end
-            rescue Timeout::Error
+            rescue
                 puts "[ERR] PID:#{pid} has not aborted. the process will be killed forcibly."
                 Process.kill(:KILL, pid)
             end
